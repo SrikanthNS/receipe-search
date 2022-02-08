@@ -1,0 +1,96 @@
+.App {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+}
+
+.main {
+  background-color: rgb(250, 249, 240);
+}
+
+.topnav {
+  background-color: black;
+  overflow: hidden;
+  height: 40px;
+  text-align: center;
+}
+
+.topnav span {
+  float: center;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 27px;
+  font-family: Radley, Georgia, serif;
+}
+
+.ingredients span {
+  text-align: left;
+  inline-size: 350px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin: 2px;
+}
+
+.ingredients span:not(:last-child):after {
+  content: ",";
+}
+
+.ingredients span.colorBlue {
+  color: blue;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.barContainer {
+  flex: 1;
+  height: 8px;
+  background: #dfdfe7;
+  border-radius: 12px;
+  overflow: hidden; /* Crucial part */
+}
+
+.textValue {
+  margin-left: 8px;
+  width: 42px;
+  text-align: right;
+}
+
+.fillerBackground {
+  height: inherit;
+  transition: "width 2s ease-i-out";
+  background: linear-gradient(90deg, aqua, rgb(6, 125, 194));
+}
+
+.filler {
+  transition: "width 2s ease-i-out";
+  height: inherit;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.rti--container {
+  --rti-main: none !important;
+  border: 0px !important;
+  margin: 0 auto;
+  width: 61%;
+}
+
+.rti--container .rti--tag {
+  background: #0d99df;
+  color: white;
+  line-height: 27px;
+}
+
+.rti--container input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 13px;
+}
