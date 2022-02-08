@@ -59,8 +59,8 @@ export default function App() {
 
   const beginSearch = () => {
     if (!tags.length) {
-      console.log("I am here")
-      console.log("🚀 ~ file: App.js ~ line 64 ~ beginSearch ~ recipeList", recipeList)
+
+
       updateRecipeList(recipe);
       return;
     }
@@ -75,7 +75,6 @@ export default function App() {
       }
     });
     const sortedMatchedRecipes = _.orderBy(matched, "percentage", ["desc"]);
-    console.log("🚀 ~ file: App.js ~ line 77 ~ beginSearch ~ sortedMatchedRecipes", sortedMatchedRecipes)
     updateRecipeList(sortedMatchedRecipes);
 
   };
