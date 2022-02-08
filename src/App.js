@@ -1,9 +1,9 @@
-import { useState } from "react";
+import _ from "lodash";
+import { useEffect, useState } from "react";
+import { TagsInput } from "react-tag-input-component";
 import Recipe from "./recipe";
 import "./style.css";
-import _ from "lodash";
 
-import { TagsInput } from "react-tag-input-component";
 
 export default function App() {
   const recipe = [
@@ -53,34 +53,37 @@ export default function App() {
     }
   ];
 
-  const [inputText, setInputText] = useState("");
-  const [tags, setTags] = useState("");
+  const [tags, setTags] = useState([]);
   const [recipeList, updateRecipeList] = useState(recipe);
   const matched = [];
 
-  const onTextEnter = (text) => {
-    setInputText(text);
-  };
-
   const beginSearch = () => {
     if (!tags.length) {
-      updateRecipeList(recipeList);
+      console.log("I am here")
+      console.log("🚀 ~ file: App.js ~ line 64 ~ beginSearch ~ recipeList", recipeList)
+      updateRecipeList(recipe);
       return;
     }
     const userIngredients = tags.map((value) => value.toLowerCase());
-    console.log("userIngredients", userIngredients);
     recipe.map((main) => {
       var inter = _.intersection(main.ingredients, userIngredients);
       if (inter.length) {
         const percentage = Math.floor(
           (inter.length / main.ingredients.length) * 100
         );
-        matched.push({ ...main, percentage, matchingIngre: inter });
+        matched.push({ ...main, percentage, matchingIngredients: inter });
       }
     });
     const sortedMatchedRecipes = _.orderBy(matched, "percentage", ["desc"]);
+    console.log("🚀 ~ file: App.js ~ line 77 ~ beginSearch ~ sortedMatchedRecipes", sortedMatchedRecipes)
     updateRecipeList(sortedMatchedRecipes);
+
   };
+
+  useEffect(() => {
+    beginSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tags]);
 
   return (
     <div className="App">
@@ -95,9 +98,6 @@ export default function App() {
         name="ingredients"
         placeHolder="bread, egg..."
       />
-      {/* <InputText textEntered={onTextEnter} textValue={inputText} /> */}
-      <br />
-      <button onClick={() => beginSearch()}>Let's cook 🥙</button>
       <br />
       <br />
       <div className="main">

@@ -60,7 +60,12 @@
 .fillerBackground {
   height: inherit;
   transition: "width 2s ease-i-out";
-  background: linear-gradient(90deg, aqua, rgb(6, 125, 194));
+  background: linear-gradient(
+    90deg,
+    aqua,
+    rgb(86, 230, 230),
+    rgb(134, 199, 199)
+  );
 }
 
 .filler {

@@ -10,6 +10,7 @@ export const PercentageBar = (props) => {
             aria-valuemax={100}
             aria-valuenow={value}
         >
+            <span style={{ fontWeight: 'bold' }}>Matching:&nbsp;</span>
             <div className="barContainer">
                 <div className="filler" style={{ width: `${value}%` }}>
                     <div
